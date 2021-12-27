@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Registration;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -58,35 +59,43 @@ class FrontController extends Controller
 
     public function registerProcess(Request $request)
     {
-        $validator = Validator($request->all(),
-        [
-            'name'=>'required',
-            'email'=>'required|email',
-            'password'=> 'required|min:6',
-            'confirm_password'=>'required|same:password|min:6',
-        ]    
-    );
+        $validator = Validator(
+            $request->all(),
+            [
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+                'confirm_password' => 'required|same:password|min:6',
+            ]
+        );
 
-    $data = [];
+        Registration::create([
+            'name' => $request->input('name'),
+            'email' => trim($request->input('email')),
+            'password' => Hash::make($request->input('password')),
+        ]);
 
-    $hashed =  Hash::make($request->password);
+        // $data = [];
 
-    echo $hashed;
+        $hashed =  Hash::make($request->password);
 
-    if(Hash::check($request->input('confirm_password'), $hashed)){
+        // echo $hashed;
+
+        if (Hash::check($request->input('confirm_password'), $hashed)) {
+
+            echo "<br/>" . "passowrd match!";
+        } else
+            echo "<br/>" . "passowrd don't match!";
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         
-        echo "<br/>" . "passowrd match!";
-    }
-    else
-        echo "<br/>" . "passowrd don't match!";
 
-    if($validator->fails()){
-        return redirect()->back()->withErrors($validator)->withInput();
-    }
+        // echo $request->input('name');
+        // echo $request->input('email');
 
-    // echo $request->input('name');
-    // echo $request->input('email');
-    
 
         // $this->validate($request, [
         //     'name'=>'required',
@@ -99,5 +108,3 @@ class FrontController extends Controller
         // return 'ok';
     }
 }
-
-
