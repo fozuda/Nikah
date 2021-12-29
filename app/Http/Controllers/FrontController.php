@@ -9,38 +9,21 @@ use Illuminate\Support\Facades\Hash;
 
 class FrontController extends Controller
 {
-    public function index()
+    public function welcome()
     {
         return view('welcome');
     }
 
-    public function contact()
-    {
-        return view('contact');
-    }
-
-    public function user($name, $id = '')
-    {
-        echo "My name is : $name"  . '   ' .  "and age is: $id";
-    }
-
-    public function okay()
-    {
-        $data = [];
-        $data['day'] = 'friday';
-        $data['date'] = '121212';
-        return view('okay', ['data' => $data]);
-    }
-
-    public function showRegisterd()
+    public function showLoginPage()
     {
         return view('login');
     }
 
-    public function login()
+    public function showRegisterPage()
     {
-        return view('login');
+        return view('register');
     }
+
 
     public function loginProcess(Request $request)
     {
@@ -52,10 +35,7 @@ class FrontController extends Controller
     }
 
 
-    public function showRegisterPage()
-    {
-        return view('register');
-    }
+
 
     public function registerProcess(Request $request)
     {
@@ -91,7 +71,7 @@ class FrontController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
-        
+
 
         // echo $request->input('name');
         // echo $request->input('email');
@@ -106,5 +86,29 @@ class FrontController extends Controller
         // return $request->all();
 
         // return 'ok';
+
+
+
+        // public function user($name, $id = '')
+        // {
+        //     echo "My name is : $name"  . '   ' .  "and age is: $id";
+        // }
+
+        // public function okay()
+        // {
+        //     $data = [];
+        //     $data['day'] = 'friday';
+        //     $data['date'] = '121212';
+        //     return view('okay', ['data' => $data]);
+        // }
+
+
+
+        // public function login()
+        // {
+        //     return view('login');
+        // }
+
+
     }
 }

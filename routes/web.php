@@ -14,14 +14,14 @@ use Illuminate\Support\Facades\Route;
 */
 // use App\Http\Controllers\FrontController;
 
-Route::get('/', 'FrontController@index');
-Route::get('/contact', 'FrontController@contact')->name('contact');
+Route::get('/', 'FrontController@welcome');
+// Route::get('/contact', 'FrontController@contact')->name('contact');
 // Route::get('/users/{name}', 'FrontController@user');
-Route::get('/users/{name}/{id?}', 'FrontController@user');
-Route::get('/okay', 'FrontController@okay');
+// Route::get('/users/{name}/{id?}', 'FrontController@user');
+// Route::get('/okay', 'FrontController@okay');
 
-Route::get('/login', 'FrontController@showRegisterd');
+Route::get('/login', 'FrontController@showLoginPage')->name('login');
 Route::post('/login', 'FrontController@loginProcess')->name('loginprocess');
 
-Route::get('/registerPage', 'FrontController@showRegisterPage');
-Route::post('/registerPage', 'FrontController@registerProcess')->name('registerprocess');
+Route::get('/register', 'FrontController@showRegisterPage')->name('register');
+Route::post('/register', 'FrontController@registerProcess')->name('registerprocess');
