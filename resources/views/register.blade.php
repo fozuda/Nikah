@@ -32,7 +32,7 @@
 
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
 
-                                    <form action="{{route('register') }}" method="post">
+                                    <form action="{{route('register')}}" method="post">
                                         @csrf
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <div class="form-outline flex-fill mb-0">

@@ -34,6 +34,34 @@ class FrontController extends Controller
         return $request->all();
     }
 
+    public function bioData(){
+        return view('partials.biodata');
+    }
+
+    public function aboutUs()
+    {
+        return view('partials.about_us');
+    }
+
+    public function blog()
+    {
+        return view('partials.blog');
+    }
+
+    public function rules()
+    {
+        return view('partials.rules');
+    }
+
+    public function posts()
+    {
+        return view('partials.post');
+    }
+
+    public function successStory()
+    {
+        return view('partials.success_story');
+    }
 
 
 
@@ -70,7 +98,6 @@ class FrontController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         }
-
 
 
         // echo $request->input('name');
