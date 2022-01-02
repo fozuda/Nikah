@@ -6,6 +6,7 @@ use App\Models\Registration;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class FrontController extends Controller
 {
@@ -34,7 +35,8 @@ class FrontController extends Controller
         return $request->all();
     }
 
-    public function bioData(){
+    public function bioData()
+    {
         return view('partials.biodata');
     }
 
@@ -55,14 +57,16 @@ class FrontController extends Controller
 
     public function posts()
     {
-        return view('partials.post');
+        $users = DB::table('registrations')
+            ->select('name', 'email')
+            ->get();
+        return view('partials.post')->with('users', $users);
     }
 
     public function successStory()
     {
         return view('partials.success_story');
     }
-
 
 
     public function registerProcess(Request $request)
@@ -128,7 +132,6 @@ class FrontController extends Controller
         //     $data['date'] = '121212';
         //     return view('okay', ['data' => $data]);
         // }
-
 
 
         // public function login()
