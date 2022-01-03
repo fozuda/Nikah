@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BioData;
 use App\Models\Registration;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Http\Request;
@@ -12,7 +13,10 @@ class FrontController extends Controller
 {
     public function welcome()
     {
-        return view('welcome');
+        $users = DB::table('registrations')
+            ->select('name', 'email')
+            ->get();
+        return view('welcome')->with('users', $users);
     }
 
     public function showLoginPage()
@@ -39,6 +43,28 @@ class FrontController extends Controller
     {
         return view('partials.biodata');
     }
+
+    public function personalInfo(Request $request)
+    {
+        $validator = Validator(
+            $request->all(),
+            [
+                'name' => 'required',
+            ]
+        );
+
+        BioData::create([
+            'name' => $request->input('name'),
+            'fatherName' => $request->input('fatherName'),
+            'fatherCccupation' => $request->input('fatherCccupation'),
+            'motherName' => $request->input('motherName'),
+            'motherOccupation' => $request->input('motherOccupation'),
+            'permanentAddress' => $request->input('permanentAddress'),
+            'presentAddress' => $request->input('presentAddress'),
+        ]);
+        return view('biodata.personal_info');
+    }
+
 
     public function aboutUs()
     {

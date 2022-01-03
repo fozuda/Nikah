@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +34,8 @@ Route::get('/aboutus', 'FrontController@aboutUs')->name('aboutus');
 Route::get('/blog', 'FrontController@blog')->name('blog');
 Route::get('/rules', 'FrontController@rules')->name('rules');
 Route::get('/success', 'FrontController@successStory')->name('success');
+
+
+Route::get('/personal_info', 'FrontController@personalInfo')->name('personalinfo');
 
 
