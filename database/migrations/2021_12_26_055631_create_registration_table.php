@@ -18,8 +18,7 @@ class CreateRegistrationTable extends Migration
             $table->id();
             $table->String('name', 64)->unique();
             $table->String('email', 64)->unique();
-            $table->String('password',256);
-            $table->string('slug', 64);
+            $table->String('password', 256);
             $table->timestamps();
         });
     }

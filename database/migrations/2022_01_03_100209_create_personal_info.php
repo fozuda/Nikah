@@ -15,14 +15,15 @@ class CreatePersonalInfo extends Migration
     {
         Schema::create('personal_info', function (Blueprint $table) {
             $table->id();
-            $table->id('name', 64);
-            $table->id('fatherName', 64);
-            $table->id('fatherCccupation', 64);
-            $table->id('motherName', 64);
-            $table->id('motherOccupation', 64);
-            $table->id('permanentAddress', 256);
-            $table->id('presentAddress', 256);
+            $table->String('name', 64);
+            $table->String('father_name', 64);
+            $table->String('father_occupation', 64);
+            $table->String('mother_name', 64);
+            $table->String('mother_occupation', 64);
+            $table->String('permanent_address', 256);
+            $table->String('present_address', 256);
             $table->timestamps();
+           
         });
     }
 

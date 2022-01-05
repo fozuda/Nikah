@@ -7,5 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class BioData extends Model
 {
-    protected $fillable = ['name', 'fatherName', 'fatherCccupation', 'motherName', 'motherOccupation', 'permanentAddress', 'presentAddress' ];
+    protected $table = 'personal_info';
+    protected $primaryKey = 'id';
+    protected $fillable = ['name', 'father_name', 'father_occupation', 'mother_name', 'mother_occupation', 'permanent_address', 'present_address'];
 }

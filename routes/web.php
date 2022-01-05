@@ -29,13 +29,13 @@ Route::get('/register', 'FrontController@showRegisterPage')->name('register');
 Route::post('/register', 'FrontController@registerProcess')->name('registerprocess');
 
 Route::get('/post', 'FrontController@posts')->name('post');
-Route::get('/boidata', 'FrontController@bioData')->name('biodata');
+Route::get('/bio-data', 'FrontController@bioData')->name('biodata');
 Route::get('/aboutus', 'FrontController@aboutUs')->name('aboutus');
 Route::get('/blog', 'FrontController@blog')->name('blog');
 Route::get('/rules', 'FrontController@rules')->name('rules');
 Route::get('/success', 'FrontController@successStory')->name('success');
 
-
-Route::get('/personal_info', 'FrontController@personalInfo')->name('personalinfo');
+Route::get('/personal-info', 'FrontController@showPersonalInfo')->name('personalinfo');
+Route::post('/personal-info', 'FrontController@personalInfoProcess')->name('personalinfoprocess');
 
 

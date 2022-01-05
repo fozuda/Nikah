@@ -16,7 +16,11 @@ class FrontController extends Controller
         $users = DB::table('registrations')
             ->select('name', 'email')
             ->get();
-        return view('welcome')->with('users', $users);
+
+        $infos = DB::table('personal_info')
+            ->select('name', 'father_name')
+            ->get();
+        return view('welcome')->with('users', $users)->with('infos', $infos);
     }
 
     public function showLoginPage()
@@ -44,27 +48,42 @@ class FrontController extends Controller
         return view('partials.biodata');
     }
 
-    public function personalInfo(Request $request)
+    public function showPersonalInfo()
+    {
+        return view('biodata.personal_info');
+    }
+
+    public function personalInfoProcess(Request $request)
     {
         $validator = Validator(
             $request->all(),
             [
                 'name' => 'required',
+                'fatherName' => 'required',
+                'fatherOccupation' => 'required',
+                'motherName' => 'required',
+                'motherOccupation' => 'required',
+                'permanentAddress' => 'required',
+                'presentAddress' => 'required',
             ]
         );
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         BioData::create([
             'name' => $request->input('name'),
-            'fatherName' => $request->input('fatherName'),
-            'fatherCccupation' => $request->input('fatherCccupation'),
-            'motherName' => $request->input('motherName'),
-            'motherOccupation' => $request->input('motherOccupation'),
-            'permanentAddress' => $request->input('permanentAddress'),
-            'presentAddress' => $request->input('presentAddress'),
+            'father_name' => $request->input('fatherName'),
+            'father_occupation' => $request->input('fatherOccupation'),
+            'mother_name' => $request->input('motherName'),
+            'mother_occupation' => $request->input('motherOccupation'),
+            'permanent_address' => $request->input('permanentAddress'),
+            'present_address' => $request->input('presentAddress'),
         ]);
+        session()->flash('message', 'create successfully!');
         return view('biodata.personal_info');
     }
-
 
     public function aboutUs()
     {
@@ -86,14 +105,18 @@ class FrontController extends Controller
         $users = DB::table('registrations')
             ->select('name', 'email')
             ->get();
-        return view('partials.post')->with('users', $users);
+        // return view('partials.post')->with('users', $users);
+
+        $infos = DB::table('personal_info')
+            ->select('name', 'father_name')
+            ->get();
+        return view('partials.post')->with('users', $users)->with('infos', $infos);
     }
 
     public function successStory()
     {
         return view('partials.success_story');
     }
-
 
     public function registerProcess(Request $request)
     {
@@ -107,29 +130,31 @@ class FrontController extends Controller
             ]
         );
 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
         Registration::create([
             'name' => $request->input('name'),
             'email' => trim($request->input('email')),
             'password' => Hash::make($request->input('password')),
         ]);
 
+        session()->flash('message', 'successful');
+
+        return view('login');
+
         // $data = [];
 
-        $hashed =  Hash::make($request->password);
+        // $hashed =  Hash::make($request->password);
 
         // echo $hashed;
 
-        if (Hash::check($request->input('confirm_password'), $hashed)) {
+        // if (Hash::check($request->input('confirm_password'), $hashed)) {
 
-            echo "<br/>" . "passowrd match!";
-        } else
-            echo "<br/>" . "passowrd don't match!";
-
-        if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
-        }
-
-
+        //     echo "<br/>" . "passowrd match!";
+        // } else
+        //     echo "<br/>" . "passowrd don't match!";
         // echo $request->input('name');
         // echo $request->input('email');
 
@@ -143,8 +168,6 @@ class FrontController extends Controller
         // return $request->all();
 
         // return 'ok';
-
-
 
         // public function user($name, $id = '')
         // {
@@ -164,7 +187,5 @@ class FrontController extends Controller
         // {
         //     return view('login');
         // }
-
-
     }
 }
