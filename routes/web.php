@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,15 +14,28 @@ use Illuminate\Support\Facades\Route;
 |
 */
 // use App\Http\Controllers\FrontController;
+// use App\Http\Controllers\BackendController;
 
-Route::get('/', 'FrontController@index');
-Route::get('/contact', 'FrontController@contact')->name('contact');
+Route::get('/', 'FrontController@welcome');
+// Route::get('/contact', 'FrontController@contact')->name('contact');
 // Route::get('/users/{name}', 'FrontController@user');
-Route::get('/users/{name}/{id?}', 'FrontController@user');
-Route::get('/okay', 'FrontController@okay');
+// Route::get('/users/{name}/{id?}', 'FrontController@user');
+// Route::get('/okay', 'FrontController@okay');
 
-Route::get('/login', 'FrontController@showRegisterd');
+Route::get('/login', 'FrontController@showLoginPage')->name('login');
 Route::post('/login', 'FrontController@loginProcess')->name('loginprocess');
 
-Route::get('/registerPage', 'FrontController@showRegisterPage');
-Route::post('/registerPage', 'FrontController@registerProcess')->name('registerprocess');
+Route::get('/register', 'FrontController@showRegisterPage')->name('register');
+Route::post('/register', 'FrontController@registerProcess')->name('registerprocess');
+
+Route::get('/post', 'FrontController@posts')->name('post');
+Route::get('/bio-data', 'FrontController@bioData')->name('biodata');
+Route::get('/aboutus', 'FrontController@aboutUs')->name('aboutus');
+Route::get('/blog', 'FrontController@blog')->name('blog');
+Route::get('/rules', 'FrontController@rules')->name('rules');
+Route::get('/success', 'FrontController@successStory')->name('success');
+
+Route::get('/personal-info', 'FrontController@showPersonalInfo')->name('personalinfo');
+Route::post('/personal-info', 'FrontController@personalInfoProcess')->name('personalinfoprocess');
+
+

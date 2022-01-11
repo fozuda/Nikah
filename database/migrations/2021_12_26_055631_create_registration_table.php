@@ -14,12 +14,11 @@ class CreateRegistrationTable extends Migration
      */
     public function up()
     {
-        Schema::create('registration', function (Blueprint $table) {
+        Schema::create('registrations', function (Blueprint $table) {
             $table->id();
             $table->String('name', 64)->unique();
             $table->String('email', 64)->unique();
-            $table->String('password',256);
-            $table->string('slug', 64)->unique();
+            $table->String('password', 256);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateRegistrationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('registration');
+        Schema::dropIfExists('registrations');
     }
 }
