@@ -1,12 +1,13 @@
 @extends('master')
 
+@section('content')
+
 <body>
     <div class="container">
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Personal Info</p>
 
-      
         <form action="{{route('personalinfoprocess')}}" method="post">
-        @csrf
+            @csrf
             <div class="d-flex flex-row align-items-center mb-4">
                 <div class="form-outline flex-fill mb-0">
                     <label class="form-label" for="form3Example1c">Name </label>
@@ -95,6 +96,13 @@
             </form> -->
 
 
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control datepicker">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
+                </div>
+            </div>
+
             <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                 <button class="btn btn-primary btn-lg" type="submit">Next</button>
             </div>
@@ -102,3 +110,16 @@
         </form>
     </div>
 </body>
+
+<script>
+    $(document).ready(function() {
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-3d'
+        });
+    });
+</script>
+
+
+
+@stop
