@@ -4,8 +4,7 @@
 
 <body>
     <div class="container">
-        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Personal Info</p>
-
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Bride/Groom More Details</p>
         <form action="{{route('personalinfoprocess')}}" method="post">
 
             @csrf
@@ -79,41 +78,10 @@
                 </div>
             </div>
 
-            <div class="d-flex flex-row align-items-center mb-4">
-                <div class="form-outline flex-fill mb-0 " data-provide="datepicker">
-                    <label class="form-label" for="form3Example1c">Date of Birth</label>
-                    <input type="text" class="form-control datepicker">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-th"></span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="d-flex flex-row align-items-center mb-4">
-                <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Height</label>
-                    <input type="text" name="presentAddress" value="{{old('presentAddress')}}" class="form-control" />
-                    @error('presentAddress')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <label class="form-label" for="form3Example1c">Weight</label>
-                    <input type="text" name="presentAddress" value="{{old('presentAddress')}}" class="form-control" />
-                    @error('presentAddress')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <label class="form-label" for="form3Example1c">Complexion</label>
-                    <input type="text" name="presentAddress" value="{{old('presentAddress')}}" class="form-control" />
-                    @error('presentAddress')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-
-                    <label class="form-label" for="form3Example1c">Blood Group</label>
-                    <input type="text" name="presentAddress" value="{{old('presentAddress')}}" class="form-control" />
-                    @error('presentAddress')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+            <div class="input-group date" data-provide="datepicker">
+                <input type="text" class="form-control datepicker">
+                <div class="input-group-addon">
+                    <span class="glyphicon glyphicon-th"></span>
                 </div>
             </div>
 
@@ -124,13 +92,3 @@
         </form>
     </div>
 </body>
-
-<script>
-    $(document).ready(function() {
-        $('.datepicker').datepicker({
-            format: 'mm/dd/yyyy',
-            startDate: '-3d'
-        });
-    });
-</script>
-

@@ -24,18 +24,21 @@ Route::get('/', 'FrontController@welcome');
 
 Route::get('/login', 'FrontController@showLoginPage')->name('login');
 Route::post('/login', 'FrontController@loginProcess')->name('loginprocess');
-
 Route::get('/register', 'FrontController@showRegisterPage')->name('register');
 Route::post('/register', 'FrontController@registerProcess')->name('registerprocess');
-
 Route::get('/post', 'FrontController@posts')->name('post');
-Route::get('/bio-data', 'FrontController@bioData')->name('biodata');
 Route::get('/aboutus', 'FrontController@aboutUs')->name('aboutus');
 Route::get('/blog', 'FrontController@blog')->name('blog');
 Route::get('/rules', 'FrontController@rules')->name('rules');
 Route::get('/success', 'FrontController@successStory')->name('success');
 
-Route::get('/personal-info', 'FrontController@showPersonalInfo')->name('personalinfo');
-Route::post('/personal-info', 'FrontController@personalInfoProcess')->name('personalinfoprocess');
 
 
+//BioData
+Route::get('/bio-data', 'BioDataController@bioData')->name('biodata');
+Route::get('/personal-info', 'BioDataController@showPersonalInfo')->name('personalinfo');
+Route::post('/personal-info', 'BioDataController@personalInfoProcess')->name('personalinfoprocess');
+Route::get('/family-details', 'BioDataController@familyDetails')->name('familyDetails');
+Route::get('/bride-groom-more-details', 'BioDataController@brideGroomMoreDetails')->name('brideGroomMoreDetails');
+Route::get('/requirment', 'BioDataController@requirment')->name('requirment');
+Route::get('/communication', 'BioDataController@communication')->name('communication');
