@@ -5,7 +5,6 @@
 <body>
     <div class="container">
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Personal Info</p>
-
         <form action="{{route('personalinfoprocess')}}" method="post">
             @csrf
             <div class="d-flex flex-row align-items-center mb-4">
@@ -78,23 +77,13 @@
                 </div>
             </div>
 
-            <!-- <form>
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Birth Day" name="name">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Height" name="">
-                    </div>
-                    <div class="col">
-                        <label class="form-label" for="form3Example1c">Male</label>
-                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="...">
-                        <label class="form-label" for="form3Example1c">Female</label>
-                        <input class="form-check-input" type="radio" name="radioNoLabel" id="radioNoLabel1" value="" aria-label="...">
-                    </div>
-                </div>
-            </form> -->
-
+            <!-- <div class="d-flex flex-row align-items-center mb-4"> -->
+                <!-- <div class="form-outline flex-fill mb-0"> -->
+                   <div>
+                   @include('partials.date')
+                   </div>
+                <!-- </div> -->
+            <!-- </div> -->
 
             <div class="input-group date" data-provide="datepicker">
                 <input type="text" class="form-control datepicker">

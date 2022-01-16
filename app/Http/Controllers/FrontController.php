@@ -36,11 +36,35 @@ class FrontController extends Controller
 
     public function loginProcess(Request $request)
     {
-        $this->validate($request, [
-            'email' => 'required|email',
-            'password' => 'required|min:6',
-        ]);
-        return $request->all();
+        $validator = Validator(
+            $request->all(),
+            [
+                'email' => 'required|email',
+                'password' => 'required|min:6',
+            ]
+        );
+
+        $login = DB::table('registrations')
+        ->select('email')
+        ->where('email', $request('email'))
+        ->first();
+        var_dump($login);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        
+        // $this->validate($request, [
+        //     'email' => 'required|email',
+        //     'password' => 'required|min:6',
+        // ]);
+        // var_dump($request->all());
+
+       
+
+            // return $request->all()->with('login', $login);
+
     }
 
     public function bioData()
@@ -105,7 +129,6 @@ class FrontController extends Controller
         $users = DB::table('registrations')
             ->select('name', 'email')
             ->get();
-        // return view('partials.post')->with('users', $users);
 
         $infos = DB::table('personal_info')
             ->select('name', 'father_name')
