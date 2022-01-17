@@ -9,10 +9,9 @@
             <a class="p-2 link-secondary" href="{{route('communication')}}">Communication</a>
         </nav>
     </div>
-    
-    <div>
-    @include('biodata.personal_info')
-    </div>
 
+    <div>
+        @include('biodata.personal_info')
+    </div>
 
 </div>
