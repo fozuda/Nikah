@@ -4,7 +4,7 @@
 
 <body>
     <div class="container">
-        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Personal Info</p>
+        <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Personal information</p>
         <form action="{{route('personalinfoprocess')}}" method="post">
 
             @csrf
@@ -22,7 +22,7 @@
 
             <div class="d-flex flex-row align-items-center mb-4">
                 <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">Fathers Name<span style="color: red;">*</span></label>
+                    <label class="form-label" for="form3Example3c">Father's Name<span style="color: red;">*</span></label>
                     <input type="text" name="fatherName" value="{{old('fatherName')}}" class="form-control" />
                     @error('fatherName')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -32,7 +32,7 @@
 
             <div class="d-flex flex-row align-items-center mb-4">
                 <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Fathers Occupation<span style="color: red;">*</span></label>
+                    <label class="form-label" for="form3Example1c">Father's Occupation<span style="color: red;">*</span></label>
                     <input type="text" name="fatherOccupation" value="{{old('fatherOccupation')}}" class="form-control" />
                     @error('fatherOccupation')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
 
             <div class="d-flex flex-row align-items-center mb-4">
                 <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Mother Name<span style="color: red;">*</span></label>
+                    <label class="form-label" for="form3Example1c">Mother's Name<span style="color: red;">*</span></label>
                     <input type="text" name="motherName" value="{{old('motherName')}}" class="form-control" />
                     @error('motherName')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -52,7 +52,7 @@
 
             <div class="d-flex flex-row align-items-center mb-4">
                 <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example1c">Mother Occupation<span style="color: red;">*</span></label>
+                    <label class="form-label" for="form3Example1c">Mother's Occupation<span style="color: red;">*</span></label>
                     <input type="text" name="motherOccupation" value="{{old('motherOccupation')}}" class="form-control" />
                     @error('motherOccupation')
                     <div class="alert alert-danger">{{ $message }}</div>
@@ -85,20 +85,8 @@
                 <div class="col-md-4">
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="form3Example1c">Date of Birth<span style="color: red;">*</span></label>
+                            <label class="form-label" for="form3Example1c">Date of Birth (Original)<span style="color: red;">*</span></label>
                             <input type="date" class="form-control">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="d-flex flex-row align-items-center mb-4">
-                        <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="form3Example1c">Complexion<span style="color: red;">*</span></label>
-                            <input type="text" name="presentAddress" value="{{old('presentAddress')}}" class="form-control" />
-                            @error('presentAddress')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                     </div>
                 </div>
@@ -115,10 +103,6 @@
                     </div>
                 </div>
 
-            </div>
-
-
-            <div class="row">
                 <div class="col-md-4">
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
@@ -130,6 +114,23 @@
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+
+            <div class="row">
+            <div class="col-md-4">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                            <label class="form-label" for="form3Example1c">Complexion<span style="color: red;">*</span></label>
+                            <input type="text" name="presentAddress" value="{{old('presentAddress')}}" class="form-control" />
+                            @error('presentAddress')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
+                    </div>
+                </div>
+                
                 <div class="col-md-4">
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
@@ -216,7 +217,7 @@
                 <div class="col-md-4">
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
-                            <label class="form-label" for="form3Example1c">Political philosophy</label>
+                            <label class="form-label" for="form3Example1c">The political point of view</label>
                             <input type="text" name="presentAddress" value="{{old('presentAddress')}}" class="form-control" />
                             @error('presentAddress')
                             <div class="alert alert-danger">{{ $message }}</div>
