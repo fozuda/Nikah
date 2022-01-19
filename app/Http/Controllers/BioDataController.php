@@ -30,6 +30,19 @@ class BioDataController extends Controller
                 'motherOccupation' => 'required',
                 'permanentAddress' => 'required',
                 'presentAddress' => 'required',
+                'dateOfBirth'=>'required',
+                'heightFt'=>'required',
+                'heightInch'=> 'required',
+                'weight'=>'required',
+                'complexion'=>'required',
+                'majhab'=>'required',
+                'educationalQualification'=>'required',
+                'occupation'=>'required',
+                'maritualStatus'=>'required',
+                'aboutYourself'=>'required',
+            ],
+            [
+                'name.required' => 'Give your proper Name!',
             ]
         );
 
@@ -45,6 +58,18 @@ class BioDataController extends Controller
             'mother_occupation' => $request->input('motherOccupation'),
             'permanent_address' => $request->input('permanentAddress'),
             'present_address' => $request->input('presentAddress'),
+            'date_of_birth' => $request->input('dateOfBirth'),
+            'height_ft' => $request->input('heightFt'),
+            'height_inch' => $request->input('heightInch'),
+            'weight' => $request->input('weight'),
+            'complexion' => $request->input('complexion'),
+            'blood_group' => $request->input('bloodGroup'),
+            'majhab' => $request->input('majhab'),
+            'educational_qualification' => $request->input('educationalQualification'),
+            'occupation' => $request->input('occupation'),
+            'maritual_status' => $request->input('maritualStatus'),
+            'political_view' => $request->input('politicalView'),
+            'about_yourself' => $request->input('aboutYourself'),
         ]);
         session()->flash('message', 'create successfully!');
         return view('biodata.personal_info');

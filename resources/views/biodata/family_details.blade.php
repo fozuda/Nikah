@@ -8,7 +8,9 @@
         <form action="{{route('personalinfoprocess')}}" method="post">
 
             @csrf
-            <label class="form-label" for="form3Example3c"><b>Siblings: (their names including education and marital status)</b></label>
+            <div class="d-flex flex-row align-items-center mb-4">
+                <label class="form-label" for="form3Example3c"><b>Siblings: (their names including education and marital status)</b></label>
+            </div>
 
             <div id="addMore">
                 <div class="row">

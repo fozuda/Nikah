@@ -40,42 +40,49 @@
             </div>
 
 
-            <div class="d-flex flex-row align-items-center mb-4">
-                <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="form3Example3c">Have you informed your parents about your marriage Plan?<span style="color: red;">*</span></label>
-                    &nbsp;
-                    &nbsp;
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                        <label class="form-check-label" for="inlineRadio1">Bride</label>
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                            <label class="form-label" for="form3Example3c">Biodata filling up for?<span style="color: red;">*</span></label>
+                            &nbsp;
+                            &nbsp;
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+                                <label class="form-check-label" for="inlineRadio1">Bride</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+                                <label class="form-check-label" for="inlineRadio2">Groom</label>
+                            </div>
+                            @error('fatherName')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                        <label class="form-check-label" for="inlineRadio2">Groom</label>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                        <div class="form-outline flex-fill mb-0">
+                            <label class="form-label" for="maritualStatus">Name of the person filling the biodata <span style="color: red;">*</span></label>
+                            <select class="form-control" id="maritualStatus">
+                                <option value="volvo">Brother</option>
+                                <option value="saab">Sister </option>
+                                <option value="opel">Father </option>
+                                <option value="audi">Mother </option>
+                                <option value="audi">Uncle </option>
+                                <option value="audi">Aunt </option>
+                            </select>
+                            @error('presentAddress')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                     </div>
-                    @error('fatherName')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
                 </div>
             </div>
 
-
-            <div class="d-flex flex-row align-items-center mb-4">
-                <div class="form-outline flex-fill mb-0">
-                    <label class="form-label" for="maritualStatus">Name of the person filling the biodata <span style="color: red;">*</span></label>
-                    <select class="form-control" id="maritualStatus">
-                        <option value="volvo">Brother</option>
-                        <option value="saab">Sister </option>
-                        <option value="opel">Father </option>
-                        <option value="audi">Mother </option>
-                        <option value="audi">Uncle </option>
-                        <option value="audi">Aunt </option>
-                    </select>
-                    @error('presentAddress')
-                    <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
-                </div>
-            </div>
             <div class="row">
                 <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button class="btn btn-primary btn-lg" type="submit">Next</button>

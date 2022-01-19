@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <body>
     <div class="container">
         <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">What kind of bride / groom do you want?</p>
@@ -92,7 +91,6 @@
             </div>
 
             <div class="row">
-
                 <div class="col-md-6">
                     <div class="d-flex flex-row align-items-center mb-4">
                         <div class="form-outline flex-fill mb-0">
