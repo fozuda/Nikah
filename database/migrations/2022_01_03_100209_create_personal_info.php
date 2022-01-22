@@ -15,15 +15,25 @@ class CreatePersonalInfo extends Migration
     {
         Schema::create('personal_info', function (Blueprint $table) {
             $table->id();
-            $table->String('name', 64);
-            $table->String('father_name', 64);
-            $table->String('father_occupation', 64);
-            $table->String('mother_name', 64);
-            $table->String('mother_occupation', 64);
-            $table->String('permanent_address', 256);
-            $table->String('present_address', 256);
+            $table->string('name', 64);
+            $table->string('father_name', 64);
+            $table->string('father_occupation', 64);
+            $table->string('mother_name', 64);
+            $table->string('mother_occupation', 64);
+            $table->string('permanent_address', 255);
+            $table->date('date_of_birth');
+            $table->integer('height_ft');
+            $table->integer('height_inch');
+            $table->integer('weight');
+            $table->String('complexion', 64);
+            $table->enum('blood_group', ['A+', 'A-', 'O+', 'O-', 'B+', 'B-', 'AB+', 'AB-']);
+            $table->enum('majhab', ['Hanafi', 'Shafeyi', 'Maleki', 'Hamboli', 'Others']);
+            $table->text('educational_qualification');
+            $table->String('occupation');
+            $table->enum('maritual_status', ['Single', 'Widowed', 'Separated', 'Divorced', 'Married']);
+            $table->text('political_view');
+            $table->longText('about_yourself');
             $table->timestamps();
-           
         });
     }
 
